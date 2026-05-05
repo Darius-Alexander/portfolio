@@ -27,6 +27,50 @@ type SocialLink = {
   link: string
 }
 
+type Education = {
+  school: string
+  degree: string
+  expected: string
+  id: string
+}
+
+type SideQuestGoal = {
+  title: string
+  description: string
+  progress: number // 0 to 1
+  target: string
+  current: string
+  id: string
+}
+
+export const EDUCATION: Education[] = [
+  {
+    school: 'University of British Columbia',
+    degree: 'Computer Science + Business',
+    expected: 'Expected May 2028',
+    id: 'edu-1',
+  },
+]
+
+export const SIDE_QUEST_GOALS: SideQuestGoal[] = [
+  {
+    title: 'Full Splits',
+    description: 'Achieve full splits (left + right)',
+    progress: 170 / 180, // 170 degrees out of 180
+    target: '180°',
+    current: '170°',
+    id: 'quest-1',
+  },
+  {
+    title: 'Guitar',
+    description: '(Re)learn the guitar',
+    progress: 0 / 10, // 0 out of 10 songs learned
+    target: '10 songs',
+    current: '0 / 10',
+    id: 'quest-2',
+  },
+]
+
 export const PROJECTS: Project[] = [
   {
     name: 'Nexus',
@@ -37,23 +81,31 @@ export const PROJECTS: Project[] = [
     id: 'nexus',
   },
   {
-    name: 'JobLingo',
+    name: 'QueryLearn',
     description:
-      'Duolingo-style learning platform for job-specific vocabulary.',
-    link: 'https://github.com/Darius-Alexander/JobLingo', // add if deployed
+      'RAG-powered learning platform',
+    link: '', // add if deployed
     video: '',
-    id: 'joblingo',
+    id: 'querylearn',
   },
 ]
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
+  {
+    company: 'Diligent',
+    title: 'Software Engineering Intern',
+    start: 'Jun 2026',
+    end: 'Present',
+    link: '',
+    id: 'work1',
+  },
   {
     company: 'Turing',
     title: 'Data Analyst Intern',
     start: 'Sep 2025',
     end: 'Dec 2025',
     link: '',
-    id: 'work1',
+    id: 'work2',
   },
   {
     company: 'Freshslice Pizza',
@@ -61,7 +113,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: 'Jun 2024',
     end: 'Sep 2024',
     link: '',
-    id: 'work2',
+    id: 'work3',
   },
   {
     company: 'PC Galore',
@@ -69,55 +121,35 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: 'Jul 2023',
     end: 'Aug 2023',
     link: '',
-    id: 'work3',
+    id: 'work4',
   }
 ]
 
 export const LEADERSHIP_EXPERIENCE: WorkExperience[] = [
+  {
+    company: 'UBC BizTech',
+    title: 'Software Engineer',
+    start: 'Mar 2026',
+    end: 'Present',
+    link: '',
+    id: 'work5',
+  },
   {
     company: 'ByYourSide Society',
     title: 'Software Developer',
     start: 'Dec 2025',
     end: 'Present',
     link: '',
-    id: 'work4',
-  },
-  {
-    company: 'UBC BizTech',
-    title: 'Partnerships Director',
-    start: 'May 2024',
-    end: 'Present',
-    link: '',
-    id: 'work5',
+    id: 'work6',
   },
 ]
 
 export const BLOG_POSTS: BlogPost[] = [
   // {
-  //   title: 'Exploring the Intersection of Design, AI, and Design Engineering',
-  //   description: 'How AI is changing the way we design',
+  //   title: 'Road to my First SWE Internship'
+  //   description: 'First Recruiting Season',
   //   link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
   //   uid: 'blog-1',
-  // },
-  // {
-  //   title: 'Why I left my job to start my own company',
-  //   description:
-  //     'A deep dive into my decision to leave my job and start my own company',
-  //   link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
-  //   uid: 'blog-2',
-  // },
-  // {
-  //   title: 'What I learned from my first year of freelancing',
-  //   description:
-  //     'A look back at my first year of freelancing and what I learned',
-  //   link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
-  //   uid: 'blog-3',
-  // },
-  // {
-  //   title: 'How to Export Metadata from MDX for Next.js SEO',
-  //   description: 'A guide on exporting metadata from MDX files to leverage Next.js SEO features.',
-  //   link: '/blog/example-mdx-metadata',
-  //   uid: 'blog-4',
   // },
 ]
 
