@@ -10,6 +10,7 @@ interface ExperienceCardProps {
   end: string
   link: string
   logo?: string
+  colorClasses?: string
 }
 
 export function ExperienceCard({
@@ -19,6 +20,7 @@ export function ExperienceCard({
   end,
   link,
   logo,
+  colorClasses,
 }: ExperienceCardProps) {
   const Wrapper = link ? 'a' : 'div'
   const wrapperProps = link
@@ -34,17 +36,16 @@ export function ExperienceCard({
         className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
         size={64}
       />
-      <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+      <div className={`relative h-full w-full rounded-[15px] p-4 ${colorClasses || 'bg-white dark:bg-zinc-950'}`}>
         <div className="relative flex w-full flex-row justify-between items-start">
           <div className="flex gap-4 items-center">
             {logo && (
-              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900 flex items-center justify-center">
+              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
                 <Image
                   src={logo}
                   alt={`${company} logo`}
-                  width={48}
-                  height={48}
-                  className="object-contain p-1"
+                  fill
+                  className="object-cover"
                 />
               </div>
             )}

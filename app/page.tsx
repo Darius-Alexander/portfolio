@@ -70,17 +70,16 @@ export default function Home() {
               key={edu.id}
               className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
             >
-              <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+              <div className={`relative h-full w-full rounded-[15px] p-4 ${edu.colorClasses || 'bg-white dark:bg-zinc-950'}`}>
                 <div className="flex items-center justify-between items-start">
                   <div className="flex gap-4 items-center">
                     {edu.logo && (
-                      <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900 flex items-center justify-center">
+                      <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
                         <Image
                           src={edu.logo}
                           alt={`${edu.school} logo`}
-                          width={48}
-                          height={48}
-                          className="object-contain p-1"
+                          fill
+                          className="object-cover"
                         />
                       </div>
                     )}

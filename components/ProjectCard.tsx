@@ -16,6 +16,7 @@ interface ProjectCardProps {
   link: string
   video: string
   logo?: string
+  colorClasses?: string
 }
 
 function ProjectVideo({ src }: { src: string }) {
@@ -64,9 +65,9 @@ function ProjectVideo({ src }: { src: string }) {
   )
 }
 
-export function ProjectCard({ name, description, link, video, logo }: ProjectCardProps) {
+export function ProjectCard({ name, description, link, video, logo, colorClasses }: ProjectCardProps) {
   return (
-    <div className="space-y-3">
+    <div className={`space-y-3 rounded-2xl p-4 ${colorClasses || 'bg-white dark:bg-zinc-950'}`}>
       {video && (
         <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
           <ProjectVideo src={video} />
@@ -74,13 +75,12 @@ export function ProjectCard({ name, description, link, video, logo }: ProjectCar
       )}
       <div className="flex gap-4 items-start px-1">
         {logo && (
-          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900 flex items-center justify-center">
+          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
             <Image
               src={logo}
               alt={`${name} logo`}
-              width={48}
-              height={48}
-              className="object-contain p-1"
+              fill
+              className="object-cover"
             />
           </div>
         )}

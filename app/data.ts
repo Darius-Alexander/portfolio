@@ -4,6 +4,7 @@ type Project = {
   link: string
   video: string
   logo?: string
+  colorClasses?: string
   id: string
 }
 
@@ -14,6 +15,7 @@ type WorkExperience = {
   end: string
   link: string
   logo?: string
+  colorClasses?: string
   id: string
 }
 
@@ -34,6 +36,7 @@ type Education = {
   degree: string
   expected: string
   logo?: string
+  colorClasses?: string
   id: string
 }
 
@@ -60,6 +63,7 @@ export const EDUCATION: Education[] = [
     degree: 'CS + Business',
     expected: 'Expected May 2028',
     logo: '/assets/logos/ubc.png',
+    colorClasses: 'bg-blue-100/60 dark:bg-blue-900/30',
     id: 'edu-1',
   },
 ]
@@ -142,6 +146,7 @@ export const PROJECTS: Project[] = [
     link: 'https://devpost.com/software/nexus', // replace if needed
     video: '',
     logo: '/assets/logos/nexus.png',
+    colorClasses: 'bg-zinc-100/60 dark:bg-zinc-900/30',
     id: 'nexus',
   },
   {
@@ -151,6 +156,7 @@ export const PROJECTS: Project[] = [
     link: '', // add if deployed
     video: '',
     logo: '/assets/logos/querylearn.jpg',
+    colorClasses: 'bg-emerald-100/60 dark:bg-emerald-900/30',
     id: 'querylearn',
   },
 ]
@@ -163,6 +169,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Present',
     link: '',
     logo: '/assets/logos/diligent.jpg',
+    colorClasses: 'bg-red-100/60 dark:bg-red-900/30',
     id: 'work1',
   },
   {
@@ -172,6 +179,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Dec 2025',
     link: '',
     logo: '/assets/logos/turing.png',
+    colorClasses: 'bg-zinc-100/60 dark:bg-zinc-900/30',
     id: 'work2',
   },
   {
@@ -181,6 +189,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Sep 2024',
     link: '',
     logo: '/assets/logos/freshslice.png',
+    colorClasses: 'bg-green-100/60 dark:bg-green-900/30',
     id: 'work3',
   },
   {
@@ -190,6 +199,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Aug 2023',
     link: '',
     logo: '/assets/logos/pcgalore.png',
+    colorClasses: 'bg-sky-100/60 dark:bg-sky-900/30',
     id: 'work4',
   }
 ]
@@ -202,6 +212,7 @@ export const LEADERSHIP_EXPERIENCE: WorkExperience[] = [
     end: 'Present',
     link: '',
     logo: '/assets/logos/biztech.png',
+    colorClasses: 'bg-blue-200/60 dark:bg-blue-800/40',
     id: 'work5',
   },
   {
@@ -211,6 +222,7 @@ export const LEADERSHIP_EXPERIENCE: WorkExperience[] = [
     end: 'Present',
     link: '',
     logo: '/assets/logos/byyourside.svg',
+    colorClasses: 'bg-indigo-100/60 dark:bg-indigo-900/30',
     id: 'work6',
   },
 ]
