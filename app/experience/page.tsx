@@ -23,6 +23,8 @@ const VARIANTS_SECTION = {
 
 const TRANSITION_SECTION = { duration: 0.3 }
 
+import Link from 'next/link'
+
 export default function ExperiencePage() {
   return (
     <motion.main
@@ -31,6 +33,15 @@ export default function ExperiencePage() {
       initial="hidden"
       animate="visible"
     >
+      <motion.div variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+        <Link
+          href="/"
+          className="mb-8 inline-flex items-center text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+        >
+          &larr; Back to Home
+        </Link>
+      </motion.div>
+
       {/* Work Experience */}
       <motion.section
         variants={VARIANTS_SECTION}

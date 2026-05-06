@@ -3,6 +3,7 @@ type Project = {
   description: string
   link: string
   video: string
+  logo?: string
   id: string
 }
 
@@ -12,6 +13,7 @@ type WorkExperience = {
   start: string
   end: string
   link: string
+  logo?: string
   id: string
 }
 
@@ -114,6 +116,7 @@ export const PROJECTS: Project[] = [
       'AI-native workflow platform enabling real-time agent execution across tools like Slack, Google Sheets, and GitHub.',
     link: 'https://devpost.com/software/nexus', // replace if needed
     video: '',
+    logo: '/assets/logos/nexus.png',
     id: 'nexus',
   },
   {
@@ -122,6 +125,7 @@ export const PROJECTS: Project[] = [
       'RAG-powered learning platform',
     link: '', // add if deployed
     video: '',
+    logo: '/assets/logos/querylearn.png',
     id: 'querylearn',
   },
 ]
@@ -133,6 +137,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: 'Jun 2026',
     end: 'Present',
     link: '',
+    logo: '/assets/logos/diligent.png',
     id: 'work1',
   },
   {
@@ -141,6 +146,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: 'Sep 2025',
     end: 'Dec 2025',
     link: '',
+    logo: '/assets/logos/turing.png',
     id: 'work2',
   },
   {
@@ -149,6 +155,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: 'Jun 2024',
     end: 'Sep 2024',
     link: '',
+    logo: '/assets/logos/freshslice.png',
     id: 'work3',
   },
   {
@@ -157,6 +164,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: 'Jul 2023',
     end: 'Aug 2023',
     link: '',
+    logo: '/assets/logos/pcgalore.png',
     id: 'work4',
   }
 ]
@@ -168,6 +176,7 @@ export const LEADERSHIP_EXPERIENCE: WorkExperience[] = [
     start: 'Mar 2026',
     end: 'Present',
     link: '',
+    logo: '/assets/logos/biztech.png',
     id: 'work5',
   },
   {
@@ -176,6 +185,7 @@ export const LEADERSHIP_EXPERIENCE: WorkExperience[] = [
     start: 'Dec 2025',
     end: 'Present',
     link: '',
+    logo: '/assets/logos/byyourside.png',
     id: 'work6',
   },
 ]
