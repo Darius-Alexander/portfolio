@@ -7,7 +7,7 @@ import { SOCIAL_LINKS } from './data'
 
 const NAV_ITEMS = [
   { label: 'Home', href: '/' },
-  { label: 'Experience', href: '/experience' },
+  { label: 'About', href: '/about' },
   { label: 'Blog', href: '/blog' },
 ]
 
