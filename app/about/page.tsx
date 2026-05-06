@@ -54,7 +54,7 @@ export default function AboutPage() {
           {EDUCATION.map((edu) => (
             <div
               key={edu.id}
-              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30 border border-black dark:border-zinc-800"
             >
               <div className={`relative h-full w-full rounded-[15px] p-4 ${edu.colorClasses || 'bg-white dark:bg-zinc-950'}`}>
                 <div className="flex items-center justify-between items-start">
@@ -101,7 +101,7 @@ export default function AboutPage() {
           {SIDE_QUEST_GOALS.map((quest) => (
             <div
               key={quest.id}
-              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30 border border-black dark:border-zinc-800"
             >
               <div className="relative flex h-full w-full flex-col items-center rounded-[15px] bg-white px-5 pt-6 pb-5 dark:bg-zinc-950">
                 <SpeedometerGauge

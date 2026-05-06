@@ -67,7 +67,7 @@ function ProjectVideo({ src }: { src: string }) {
 
 export function ProjectCard({ name, description, link, video, logo, colorClasses }: ProjectCardProps) {
   return (
-    <div className={`space-y-3 rounded-2xl p-4 ${colorClasses || 'bg-white dark:bg-zinc-950'}`}>
+    <div className={`space-y-3 rounded-2xl p-4 border border-black dark:border-zinc-800 ${colorClasses || 'bg-white dark:bg-zinc-950'}`}>
       {video && (
         <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
           <ProjectVideo src={video} />

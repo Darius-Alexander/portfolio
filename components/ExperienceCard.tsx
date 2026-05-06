@@ -29,7 +29,7 @@ export function ExperienceCard({
 
   return (
     <Wrapper
-      className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+      className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30 border border-black dark:border-zinc-800"
       {...wrapperProps}
     >
       <Spotlight
