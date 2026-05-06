@@ -60,7 +60,7 @@ type SideQuestGoal = {
 export const EDUCATION: Education[] = [
   {
     school: 'University of British Columbia',
-    degree: 'CS + Business',
+    degree: "Bachelor's Degree, Major in Computer Science and Business",
     expected: 'Expected May 2028',
     logo: '/assets/logos/ubc.png',
     colorClasses: 'bg-blue-100/60 dark:bg-blue-900/30',
@@ -72,7 +72,7 @@ export const SIDE_QUEST_GOALS: SideQuestGoal[] = [
   {
     title: 'Full Splits',
     description: 'Achieve full splits (left + right)',
-    progress: (155 / 180 + 170 / 180) / 2, // average of left + right
+    progress: (155 / 180 + 170 / 180) / 2,
     target: '180°',
     current: '~163°',
     subGoals: [
@@ -231,7 +231,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     title: 'Road to my First SWE Internship',
     description: 'First Recruiting Season',
-    link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
+    link: '/blog/road-to-my-first-swe-internship',
     uid: 'blog-1',
   },
 ]
