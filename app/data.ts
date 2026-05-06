@@ -243,7 +243,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     label: 'LinkedIn',
-    link: 'www.linkedin.com/in/darius-alexander/',
+    link: 'https://www.linkedin.com/in/darius-alexander/',
   },
 ]
 

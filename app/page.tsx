@@ -3,13 +3,11 @@ import Image from 'next/image'
 import { motion } from 'motion/react'
 import { ExperienceCard } from '@/components/ExperienceCard'
 import { ProjectCard } from '@/components/ProjectCard'
-import { SocialLinks } from '@/components/SocialLinks'
 import {
   WORK_EXPERIENCE,
   LEADERSHIP_EXPERIENCE,
   PROJECTS,
   EMAIL,
-  SOCIAL_LINKS,
 } from './data'
 
 const VARIANTS_CONTAINER = {
@@ -134,7 +132,6 @@ export default function Home() {
             {EMAIL}
           </a>
         </p>
-        <SocialLinks links={SOCIAL_LINKS} />
       </motion.section>
     </motion.main>
   )

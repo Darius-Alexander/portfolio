@@ -57,7 +57,7 @@ export function Header() {
           <div>
             <Link
               href="/"
-              className="text-2xl font-semibold text-black dark:text-white"
+              className="text-5xl font-bold tracking-tight text-black dark:text-white"
             >
               Darius Alexander
             </Link>
@@ -71,7 +71,7 @@ export function Header() {
               Software Engineer
             </TextEffect>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col items-end gap-2">
             {SOCIAL_LINKS.map((link) => (
               <a
                 key={link.label}
