@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import { motion } from 'motion/react'
 import { SpeedometerGauge } from '@/components/ui/speedometer-gauge'
 import { SocialLinks } from '@/components/SocialLinks'
@@ -70,16 +71,29 @@ export default function Home() {
               className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
             >
               <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h4 className="font-normal dark:text-zinc-100">
-                      {edu.school}
-                    </h4>
-                    <p className="text-zinc-500 dark:text-zinc-400">
-                      {edu.degree}
-                    </p>
+                <div className="flex items-center justify-between items-start">
+                  <div className="flex gap-4 items-center">
+                    {edu.logo && (
+                      <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900 flex items-center justify-center">
+                        <Image
+                          src={edu.logo}
+                          alt={`${edu.school} logo`}
+                          width={48}
+                          height={48}
+                          className="object-contain p-1"
+                        />
+                      </div>
+                    )}
+                    <div>
+                      <h4 className="font-medium dark:text-zinc-100">
+                        {edu.school}
+                      </h4>
+                      <p className="text-zinc-500 dark:text-zinc-400">
+                        {edu.degree}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">
                     {edu.expected}
                   </p>
                 </div>

@@ -57,6 +57,7 @@ export default function ExperiencePage() {
               start={job.start}
               end={job.end}
               link={job.link}
+              logo={job.logo}
             />
           ))}
         </div>
@@ -77,6 +78,7 @@ export default function ExperiencePage() {
               start={role.start}
               end={role.end}
               link={role.link}
+              logo={role.logo}
             />
           ))}
         </div>
@@ -96,6 +98,7 @@ export default function ExperiencePage() {
               description={project.description}
               link={project.link}
               video={project.video}
+              logo={project.logo}
             />
           ))}
         </div>

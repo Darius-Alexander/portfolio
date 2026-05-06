@@ -47,7 +47,13 @@ export function SpeedometerGauge({ progress, title, current, target, size = 160 
 
   const motionProg = useMotionValue(0)
   const dashOffset = useTransform(motionProg, [0, 1], [arcLen, round(arcLen * (1 - clamped))])
+  
+  // Calculate needle angle in degrees
   const needleAngle = useTransform(motionProg, [0, 1], [startAngle, startAngle + totalArc * clamped])
+  
+  // Calculate exact x2, y2 for the needle tip using standard polar math
+  const needleX = useTransform(needleAngle, (angle) => polarToCartesian(cx, cy, r - 14, angle).x)
+  const needleY = useTransform(needleAngle, (angle) => polarToCartesian(cx, cy, r - 14, angle).y)
 
   useEffect(() => {
     setMounted(true)
@@ -92,11 +98,16 @@ export function SpeedometerGauge({ progress, title, current, target, size = 160 
 
         {/* Needle */}
         {mounted && (
-          <motion.g style={{ rotate: needleAngle, transformOrigin: `${cx}px ${cy}px` }}>
-            <line x1={cx} y1={cy} x2={cx + r - 14} y2={cy}
-              stroke="currentColor" strokeWidth={2} strokeLinecap="round"
-              className="text-zinc-900 dark:text-zinc-100" />
-          </motion.g>
+          <motion.line 
+            x1={cx} 
+            y1={cy} 
+            x2={needleX} 
+            y2={needleY}
+            stroke="currentColor" 
+            strokeWidth={2} 
+            strokeLinecap="round"
+            className="text-zinc-900 dark:text-zinc-100" 
+          />
         )}
 
         {/* Center dot */}

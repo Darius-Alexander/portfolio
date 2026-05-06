@@ -33,6 +33,7 @@ type Education = {
   school: string
   degree: string
   expected: string
+  logo?: string
   id: string
 }
 
@@ -58,6 +59,7 @@ export const EDUCATION: Education[] = [
     school: 'University of British Columbia',
     degree: 'CS + Business',
     expected: 'Expected May 2028',
+    logo: '/assets/logos/ubc.png',
     id: 'edu-1',
   },
 ]
@@ -73,13 +75,13 @@ export const SIDE_QUEST_GOALS: SideQuestGoal[] = [
       {
         label: 'Left',
         progress: 155 / 180,
-        current: '170°',
+        current: '155°',
         target: '180°',
       },
       {
         label: 'Right',
         progress: 170 / 180,
-        current: '155°',
+        current: '170°',
         target: '180°',
       },
     ],
@@ -88,14 +90,14 @@ export const SIDE_QUEST_GOALS: SideQuestGoal[] = [
   {
     title: 'Guitar',
     description: '(Re)learn the guitar',
-    progress: 0 / 10, // total songs learned out of 10
+    progress: 1 / 10, // total songs learned out of 10
     target: '10 songs',
-    current: '0 / 10',
+    current: '1 / 10',
     subGoals: [
       {
         label: 'Classical',
         progress: 1 / 5,
-        current: '0',
+        current: '1',
         target: '5 songs',
       },
       {
@@ -106,6 +108,29 @@ export const SIDE_QUEST_GOALS: SideQuestGoal[] = [
       },
     ],
     id: 'quest-2',
+  },
+  {
+    title: 'Chess',
+    description: 'Achieve 1200 ELO (Bullet + Rapid)',
+    progress: (800 / 1200 + 900 / 1200) / 2, // average progress
+    target: '1200',
+    current: '~850', // (800 + 900) / 2
+    // TODO: Hook this up to chess.com or lichess API later
+    subGoals: [
+      {
+        label: 'Bullet',
+        progress: 800 / 1200,
+        current: '800',
+        target: '1200',
+      },
+      {
+        label: 'Rapid',
+        progress: 900 / 1200,
+        current: '900',
+        target: '1200',
+      },
+    ],
+    id: 'quest-3',
   },
 ]
 
@@ -125,7 +150,7 @@ export const PROJECTS: Project[] = [
       'RAG-powered learning platform',
     link: '', // add if deployed
     video: '',
-    logo: '/assets/logos/querylearn.png',
+    logo: '/assets/logos/querylearn.jpg',
     id: 'querylearn',
   },
 ]
@@ -137,7 +162,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: 'Jun 2026',
     end: 'Present',
     link: '',
-    logo: '/assets/logos/diligent.png',
+    logo: '/assets/logos/diligent.jpg',
     id: 'work1',
   },
   {
@@ -185,7 +210,7 @@ export const LEADERSHIP_EXPERIENCE: WorkExperience[] = [
     start: 'Dec 2025',
     end: 'Present',
     link: '',
-    logo: '/assets/logos/byyourside.png',
+    logo: '/assets/logos/byyourside.svg',
     id: 'work6',
   },
 ]
