@@ -100,7 +100,7 @@ export default function Home() {
               key={quest.id}
               className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
             >
-              <div className="relative flex h-full w-full flex-col items-center rounded-[15px] bg-white px-4 pt-6 pb-5 dark:bg-zinc-950">
+              <div className="relative flex h-full w-full flex-col items-center rounded-[15px] bg-white px-5 pt-6 pb-5 dark:bg-zinc-950">
                 <SpeedometerGauge
                   progress={quest.progress}
                   title={quest.title}
@@ -108,13 +108,45 @@ export default function Home() {
                   target={quest.target}
                 />
                 <div className="mt-3 text-center">
-                  <h4 className="font-normal dark:text-zinc-100">
+                  <h4 className="font-semibold dark:text-zinc-100">
                     {quest.title}
                   </h4>
                   <p className="text-sm text-zinc-500 dark:text-zinc-400">
                     {quest.description}
                   </p>
                 </div>
+
+                {/* Sub-goal breakdown */}
+                {quest.subGoals && quest.subGoals.length > 0 && (
+                  <div className="mt-4 w-full space-y-2.5">
+                    {quest.subGoals.map((sub) => (
+                      <div key={sub.label} className="w-full">
+                        <div className="mb-1 flex items-center justify-between text-xs">
+                          <span className="text-zinc-600 dark:text-zinc-400">
+                            {sub.label}
+                          </span>
+                          <span className="text-zinc-500 dark:text-zinc-500">
+                            {sub.current} / {sub.target}
+                          </span>
+                        </div>
+                        <div className="h-1.5 w-full overflow-hidden rounded-full bg-emerald-100 dark:bg-emerald-900/50">
+                          <motion.div
+                            className="h-full rounded-full bg-emerald-500 dark:bg-emerald-400"
+                            initial={{ width: 0 }}
+                            animate={{
+                              width: `${Math.min(sub.progress * 100, 100)}%`,
+                            }}
+                            transition={{
+                              duration: 1.2,
+                              ease: [0.16, 1, 0.3, 1],
+                              delay: 0.6,
+                            }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           ))}
