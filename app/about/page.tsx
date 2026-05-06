@@ -32,14 +32,17 @@ export default function AboutPage() {
       initial="hidden"
       animate="visible"
     >
-      <motion.div variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
-        <Link
-          href="/"
-          className="mb-8 inline-flex items-center text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-        >
-          &larr; Back to Home
-        </Link>
-      </motion.div>
+      {/* About Me */}
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-5 text-2xl font-semibold">About Me</h3>
+        <p className="text-zinc-600 dark:text-zinc-400">
+          I am a software engineer passionate about building scalable, data-driven applications. 
+          When I'm not coding, I enjoy learning new skills and pushing myself through various side quests.
+        </p>
+      </motion.section>
 
       {/* Education */}
       <motion.section

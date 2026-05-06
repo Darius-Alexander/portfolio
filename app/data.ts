@@ -228,12 +228,12 @@ export const LEADERSHIP_EXPERIENCE: WorkExperience[] = [
 ]
 
 export const BLOG_POSTS: BlogPost[] = [
-  // {
-  //   title: 'Road to my First SWE Internship'
-  //   description: 'First Recruiting Season',
-  //   link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
-  //   uid: 'blog-1',
-  // },
+  {
+    title: 'Road to my First SWE Internship',
+    description: 'First Recruiting Season',
+    link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
+    uid: 'blog-1',
+  },
 ]
 
 export const SOCIAL_LINKS: SocialLink[] = [

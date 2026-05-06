@@ -52,6 +52,7 @@ export default function RootLayout({
         >
           <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter-tight)]">
             <div className="relative mx-auto w-full max-w-screen-md flex-1 px-6 pt-20">
+              <Header />
               {children}
               <Footer />
             </div>

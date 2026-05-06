@@ -31,8 +31,6 @@ const TRANSITION_SECTION = {
   duration: 0.3,
 }
 
-import { Header } from './header'
-
 export default function Home() {
   return (
     <motion.main
@@ -41,7 +39,6 @@ export default function Home() {
       initial="hidden"
       animate="visible"
     >
-      <Header />
       
       {/* Bio */}
       <motion.section
