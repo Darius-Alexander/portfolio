@@ -136,6 +136,19 @@ export const SIDE_QUEST_GOALS: SideQuestGoal[] = [
     ],
     id: 'quest-3',
   },
+  {
+    title: 'Gym',
+    description: 'Hit the gym 200 times in the next calendar year',
+    progress: 0,
+    target: '200 sessions',
+    current: '0',
+    subGoals: [
+      { label: 'Push', progress: 0, current: '0', target: '70' },
+      { label: 'Pull', progress: 0, current: '0', target: '70' },
+      { label: 'Legs', progress: 0, current: '0', target: '60' },
+    ],
+    id: 'quest-4',
+  },
 ]
 
 export const PROJECTS: Project[] = [
