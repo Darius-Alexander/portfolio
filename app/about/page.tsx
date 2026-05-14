@@ -39,8 +39,15 @@ export default function AboutPage() {
       >
         <h3 className="mb-5 text-2xl font-semibold">About Me</h3>
         <p className="text-zinc-600 dark:text-zinc-400">
-          I am a software engineer passionate about building scalable, data-driven applications. 
-          When I'm not coding, I enjoy learning new skills and pushing myself through various side quests.
+          Hi, I'm Darius! I'm an upcoming third year Computer Science and Business combined major at the
+          University of British Columbia. I'm passionate about both Software Development, where I get to work
+          on implementations as well as Product where I'm focused on users and the end product. I've had the
+          opportunity to work in several relevant roles, and am currently a SWE Intern at Diligent on the AI
+          Platforms team.
+
+          Outside of work, you can catch me playing/watching sports and attempting (and failing) to pull an all
+          nighter at a hackathon.
+
         </p>
       </motion.section>
 

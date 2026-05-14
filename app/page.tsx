@@ -37,7 +37,7 @@ export default function Home() {
       initial="hidden"
       animate="visible"
     >
-      
+
       {/* Bio */}
       <motion.section
         variants={VARIANTS_SECTION}
@@ -45,12 +45,7 @@ export default function Home() {
       >
         <div className="flex-1">
           <p className="text-zinc-600 dark:text-zinc-400">
-            I build data-driven and AI-powered products that bridge technical
-            execution with real-world impact. From developing agentic systems to
-            shipping full-stack applications, I focus on turning complex
-            workflows into intuitive, scalable solutions. Passionate about
-            product thinking, I combine engineering, analytics, and leadership to
-            deliver measurable results.
+            Trying to build cool things that change people's lives (for the better).
           </p>
         </div>
       </motion.section>
