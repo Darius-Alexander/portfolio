@@ -71,7 +71,7 @@ export const EDUCATION: Education[] = [
 export const SIDE_QUEST_GOALS: SideQuestGoal[] = [
   {
     title: 'Full Splits',
-    description: 'Achieve full splits (left + right)',
+    description: 'Achieve full splits (Left + Right)',
     progress: (155 / 180 + 170 / 180) / 2,
     target: '180°',
     current: '~163°',
@@ -115,7 +115,7 @@ export const SIDE_QUEST_GOALS: SideQuestGoal[] = [
   },
   {
     title: 'Chess',
-    description: 'Achieve 1200 ELO (Bullet + Rapid)',
+    description: 'Achieve 1200+ ELO (Bullet + Rapid)',
     progress: (800 / 1200 + 900 / 1200) / 2, // average progress
     target: '1200',
     current: '~850', // (800 + 900) / 2
@@ -181,7 +181,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: 'Jun 2026',
     end: 'Present',
     link: '',
-    logo: '/assets/logos/diligent.jpg',
+    logo: '/assets/logos/diligent.png',
     colorClasses: 'bg-red-100/60 dark:bg-red-900/30',
     id: 'work1',
   },
