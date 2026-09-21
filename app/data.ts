@@ -172,6 +172,14 @@ export const PROJECTS: Project[] = [
     colorClasses: 'bg-emerald-100/60 dark:bg-emerald-900/30',
     id: 'querylearn',
   },
+  {
+    name: 'ReadyRoom',
+    description: 'A 60-second M&A transaction readiness pitch deck scorer',
+    link: '',
+    video: '',
+    colorClasses: 'bg-blue-100/60 dark:bg-blue-900/30',
+    id: 'readyroom',
+  },
 ]
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
@@ -232,7 +240,7 @@ export const LEADERSHIP_EXPERIENCE: WorkExperience[] = [
     company: 'ByYourSide Society',
     title: 'Software Developer',
     start: 'Dec 2025',
-    end: 'Present',
+    end: 'May 2026',
     link: '',
     logo: '/assets/logos/byyourside.svg',
     colorClasses: 'bg-indigo-100/60 dark:bg-indigo-900/30',
