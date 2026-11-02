@@ -100,14 +100,17 @@ export default function Home() {
         transition={TRANSITION_SECTION}
       >
         <h3 className="mb-5 text-lg font-medium">Projects</h3>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="flex flex-col gap-6">
           {PROJECTS.map((project) => (
             <ProjectCard
               key={project.id}
               name={project.name}
               description={project.description}
+              achievement={project.achievement}
+              stack={project.stack}
               link={project.link}
-              video={project.video}
+              linkLabel={project.linkLabel}
+              demoUrl={project.demoUrl}
               logo={project.logo}
               colorClasses={project.colorClasses}
             />

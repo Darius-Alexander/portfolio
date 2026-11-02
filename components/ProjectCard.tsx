@@ -1,103 +1,98 @@
 'use client'
-import { XIcon } from 'lucide-react'
-import {
-  MorphingDialog,
-  MorphingDialogTrigger,
-  MorphingDialogContent,
-  MorphingDialogClose,
-  MorphingDialogContainer,
-} from '@/components/ui/morphing-dialog'
 
 import Image from 'next/image'
+import { ArrowUpRight, Play } from 'lucide-react'
 
 interface ProjectCardProps {
   name: string
   description: string
+  achievement?: string
+  stack: string[]
   link: string
-  video: string
+  linkLabel?: string
+  demoUrl?: string
   logo?: string
   colorClasses?: string
 }
 
-function ProjectVideo({ src }: { src: string }) {
+export function ProjectCard({
+  name,
+  description,
+  achievement,
+  stack,
+  link,
+  linkLabel,
+  demoUrl,
+  logo,
+  colorClasses,
+}: ProjectCardProps) {
   return (
-    <MorphingDialog
-      transition={{
-        type: 'spring',
-        bounce: 0,
-        duration: 0.3,
-      }}
+    <article
+      className={`overflow-hidden rounded-2xl border border-black dark:border-zinc-800 ${colorClasses || 'bg-white dark:bg-zinc-950'}`}
     >
-      <MorphingDialogTrigger>
-        <video
-          src={src}
-          autoPlay
-          loop
-          muted
-          className="aspect-video w-full cursor-zoom-in rounded-xl"
-        />
-      </MorphingDialogTrigger>
-      <MorphingDialogContainer>
-        <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
-          <video
-            src={src}
-            autoPlay
-            loop
-            muted
-            className="aspect-video h-[50vh] w-full rounded-xl md:h-[70vh]"
-          />
-        </MorphingDialogContent>
-        <MorphingDialogClose
-          className="fixed top-6 right-6 h-fit w-fit rounded-full bg-white p-1"
-          variants={{
-            initial: { opacity: 0 },
-            animate: {
-              opacity: 1,
-              transition: { delay: 0.3, duration: 0.1 },
-            },
-            exit: { opacity: 0, transition: { duration: 0 } },
-          }}
-        >
-          <XIcon className="h-5 w-5 text-zinc-500" />
-        </MorphingDialogClose>
-      </MorphingDialogContainer>
-    </MorphingDialog>
-  )
-}
+      <div className="p-5 sm:p-6">
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex min-w-0 items-start gap-4">
+            {logo ? (
+              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
+                <Image src={logo} alt={`${name} logo`} fill className="object-cover" />
+              </div>
+            ) : (
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-black/10 bg-white/70 text-sm font-semibold text-zinc-800 dark:border-white/10 dark:bg-zinc-900/70 dark:text-zinc-100">
+                {name.slice(0, 2).toUpperCase()}
+              </div>
+            )}
 
-export function ProjectCard({ name, description, link, video, logo, colorClasses }: ProjectCardProps) {
-  return (
-    <div className={`space-y-3 rounded-2xl p-4 border border-black dark:border-zinc-800 ${colorClasses || 'bg-white dark:bg-zinc-950'}`}>
-      {video && (
-        <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-          <ProjectVideo src={video} />
-        </div>
-      )}
-      <div className="flex gap-4 items-start px-1">
-        {logo && (
-          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
-            <Image
-              src={logo}
-              alt={`${name} logo`}
-              fill
-              className="object-cover"
-            />
+            <div className="min-w-0">
+              <h4 className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">{name}</h4>
+              {achievement && (
+                <p className="mt-0.5 text-sm font-medium text-zinc-600 dark:text-zinc-300">
+                  {achievement}
+                </p>
+              )}
+            </div>
           </div>
-        )}
-        <div>
-          <a
-            className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
-            href={link}
-            target="_blank"
-          >
-            {name}
-            <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
-          </a>
-          <p className="text-base text-zinc-600 dark:text-zinc-400">
-            {description}
-          </p>
+
+          <div className="flex shrink-0 flex-wrap justify-end gap-2">
+            {demoUrl && (
+              <a
+                href={demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-black/15 bg-white/70 px-3 py-1.5 text-sm font-medium text-zinc-800 transition-colors hover:bg-white dark:border-white/15 dark:bg-zinc-900/70 dark:text-zinc-100 dark:hover:bg-zinc-900"
+              >
+                <Play className="h-3.5 w-3.5" aria-hidden="true" />
+                Watch demo
+              </a>
+            )}
+            {link && (
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 rounded-full border border-black/15 bg-white/70 px-3 py-1.5 text-sm font-medium text-zinc-800 transition-colors hover:bg-white dark:border-white/15 dark:bg-zinc-900/70 dark:text-zinc-100 dark:hover:bg-zinc-900"
+              >
+                {linkLabel || 'View'}
+                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+              </a>
+            )}
+          </div>
         </div>
+
+        <p className="mt-4 text-zinc-700 dark:text-zinc-300">{description}</p>
+
+        <div className="mt-4 flex flex-wrap gap-2" aria-label={`${name} technologies`}>
+          {stack.map((technology) => (
+            <span
+              key={technology}
+              className="rounded-full border border-black/10 bg-white/60 px-2.5 py-1 text-xs font-medium text-zinc-700 dark:border-white/10 dark:bg-zinc-900/60 dark:text-zinc-300"
+            >
+              {technology}
+            </span>
+          ))}
+        </div>
+
       </div>
-    </div>
+    </article>
   )
 }

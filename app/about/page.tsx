@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import { motion } from 'motion/react'
 import { SpeedometerGauge } from '@/components/ui/speedometer-gauge'
+import { useEffect, useMemo, useState } from 'react'
 import {
   EDUCATION,
   SIDE_QUEST_GOALS,
@@ -24,7 +25,76 @@ const TRANSITION_SECTION = { duration: 0.3 }
 
 import Link from 'next/link'
 
+type ChessRatings = {
+  bullet: number
+  blitz: number
+  rapid: number
+}
+
 export default function AboutPage() {
+  const [chessRatings, setChessRatings] = useState<ChessRatings | null>(null)
+
+  useEffect(() => {
+    const controller = new AbortController()
+
+    async function loadChessRatings() {
+      try {
+        const response = await fetch('/api/chess', { signal: controller.signal })
+        if (!response.ok) return
+
+        const data = (await response.json()) as { ratings?: ChessRatings }
+        const ratings = data.ratings
+
+        if (
+          ratings &&
+          [ratings.bullet, ratings.blitz, ratings.rapid].every(
+            (rating) => typeof rating === 'number',
+          )
+        ) {
+          setChessRatings(ratings)
+        }
+      } catch (error) {
+        if (!(error instanceof DOMException && error.name === 'AbortError')) {
+          console.error('Unable to load live Chess.com ratings:', error)
+        }
+      }
+    }
+
+    loadChessRatings()
+    return () => controller.abort()
+  }, [])
+
+  const sideQuestGoals = useMemo(() => {
+    if (!chessRatings) return SIDE_QUEST_GOALS
+
+    const target = 1200
+    const ratings = [
+      { label: 'Bullet', current: chessRatings.bullet },
+      { label: 'Blitz', current: chessRatings.blitz },
+      { label: 'Rapid', current: chessRatings.rapid },
+    ]
+    const average = Math.round(
+      ratings.reduce((total, rating) => total + rating.current, 0) /
+        ratings.length,
+    )
+
+    return SIDE_QUEST_GOALS.map((quest) =>
+      quest.id === 'quest-3'
+        ? {
+            ...quest,
+            progress: average / target,
+            current: `~${average}`,
+            subGoals: ratings.map((rating) => ({
+              label: rating.label,
+              progress: rating.current / target,
+              current: String(rating.current),
+              target: String(target),
+            })),
+          }
+        : quest,
+    )
+  }, [chessRatings])
+
   return (
     <motion.main
       className="space-y-24"
@@ -42,7 +112,7 @@ export default function AboutPage() {
           Hi, I'm Darius! I'm a third year Computer Science and Business combined major at the
           University of British Columbia. I'm passionate about both Software Development, where I get to work
           on implementations as well as Product where I'm focused on users and the end product. I've had the
-          opportunity to work in several relevant roles, and am currently a SWE Intern at Diligent on the AI
+          opportunity to work in several related roles, most recently as a SWE Intern at Diligent on the AI
           Platforms team.
 
           Outside of work, you can catch me playing/watching sports and attempting (and failing) to pull an all
@@ -105,7 +175,7 @@ export default function AboutPage() {
           Current goals outside of code
         </p>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {SIDE_QUEST_GOALS.map((quest) => (
+          {sideQuestGoals.map((quest) => (
             <div
               key={quest.id}
               className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30 border border-black dark:border-zinc-800"
@@ -124,6 +194,16 @@ export default function AboutPage() {
                   <p className="text-sm text-zinc-500 dark:text-zinc-400">
                     {quest.description}
                   </p>
+                  {quest.id === 'quest-3' && (
+                    <a
+                      href="https://www.chess.com/member/dariusalexander18"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 inline-block text-xs text-emerald-700 underline-offset-2 hover:underline dark:text-emerald-400"
+                    >
+                      {chessRatings ? 'Latest ratings from Chess.com ↗' : 'View on Chess.com ↗'}
+                    </a>
+                  )}
                 </div>
 
                 {/* Sub-goal breakdown */}

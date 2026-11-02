@@ -1,8 +1,11 @@
 type Project = {
   name: string
   description: string
+  achievement?: string
+  stack: string[]
   link: string
-  video: string
+  linkLabel?: string
+  demoUrl?: string
   logo?: string
   colorClasses?: string
   id: string
@@ -115,40 +118,46 @@ export const SIDE_QUEST_GOALS: SideQuestGoal[] = [
   },
   {
     title: 'Chess',
-    description: 'Achieve 1200+ ELO (Bullet + Rapid)',
-    progress: (800 / 1200 + 900 / 1200) / 2, // average progress
+    description: 'Achieve 1200+ ELO (Bullet + Blitz + Rapid)',
+    progress: (895 / 1200 + 710 / 1200 + 1101 / 1200) / 3,
     target: '1200',
-    current: '~850', // (800 + 900) / 2
-    // TODO: Hook this up to chess.com or lichess API later
+    current: '~902',
     subGoals: [
       {
         label: 'Bullet',
-        progress: 800 / 1200,
-        current: '800',
+        progress: 895 / 1200,
+        current: '895',
+        target: '1200',
+      },
+      {
+        label: 'Blitz',
+        progress: 710 / 1200,
+        current: '710',
         target: '1200',
       },
       {
         label: 'Rapid',
-        progress: 900 / 1200,
-        current: '900',
+        progress: 1101 / 1200,
+        current: '1101',
         target: '1200',
       },
     ],
     id: 'quest-3',
   },
-  {
-    title: 'Gym',
-    description: 'Hit the gym 200 times in the next calendar year',
-    progress: 0,
-    target: '200 sessions',
-    current: '0',
-    subGoals: [
-      { label: 'Push', progress: 0, current: '0', target: '70' },
-      { label: 'Pull', progress: 0, current: '0', target: '70' },
-      { label: 'Legs', progress: 0, current: '0', target: '60' },
-    ],
-    id: 'quest-4',
-  },
+  // Gym goal is hidden until its progress can be represented more clearly.
+  // {
+  //   title: 'Gym',
+  //   description: 'Hit the gym 200 times in the next calendar year',
+  //   progress: 0,
+  //   target: '200 sessions',
+  //   current: '0',
+  //   subGoals: [
+  //     { label: 'Push', progress: 0, current: '0', target: '70' },
+  //     { label: 'Pull', progress: 0, current: '0', target: '70' },
+  //     { label: 'Legs', progress: 0, current: '0', target: '60' },
+  //   ],
+  //   id: 'quest-4',
+  // },
 ]
 
 export const PROJECTS: Project[] = [
@@ -156,29 +165,32 @@ export const PROJECTS: Project[] = [
     name: 'Nexus',
     description:
       'AI-native workflow platform enabling real-time agent execution across tools like Slack, Google Sheets, and GitHub.',
-    link: 'https://devpost.com/software/nexus', // replace if needed
-    video: '',
+    achievement: 'nwHacks 2026 · 1st — Best Use of Vultr',
+    stack: ['Next.js', 'shadcn/ui', 'React', 'Tailwind CSS', 'MongoDB'],
+    link: 'https://devpost.com/software/nexus',
+    linkLabel: 'Devpost',
     logo: '/assets/logos/nexus.png',
     colorClasses: 'bg-zinc-100/60 dark:bg-zinc-900/30',
     id: 'nexus',
   },
   {
+    name: 'ReadyRoom',
+    description: 'A 60-second M&A transaction readiness pitch deck scorer',
+    achievement: 'Diligent Hackfest 2026 · Global Finalist',
+    stack: ['Python', 'React', 'TypeScript', 'Diligent Agent Fabric'],
+    link: '',
+    demoUrl: 'https://youtu.be/0M-kOsxI9VI',
+    colorClasses: 'bg-blue-100/60 dark:bg-blue-900/30',
+    id: 'readyroom',
+  },
+  {
     name: 'QueryLearn',
-    description:
-      'RAG-powered learning platform',
-    link: '', // add if deployed
-    video: '',
+    description: 'RAG-powered learning platform for source-grounded answers from uploaded course materials.',
+    stack: ['FastAPI', 'React', 'Vite', 'SQLite', 'Python'],
+    link: '',
     logo: '/assets/logos/querylearn.jpg',
     colorClasses: 'bg-emerald-100/60 dark:bg-emerald-900/30',
     id: 'querylearn',
-  },
-  {
-    name: 'ReadyRoom',
-    description: 'A 60-second M&A transaction readiness pitch deck scorer',
-    link: '',
-    video: '',
-    colorClasses: 'bg-blue-100/60 dark:bg-blue-900/30',
-    id: 'readyroom',
   },
 ]
 
@@ -187,7 +199,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     company: 'Diligent',
     title: 'Software Engineering Intern',
     start: 'Jun 2026',
-    end: 'Present',
+    end: 'Oct 2026',
     link: '',
     logo: '/assets/logos/diligent.png',
     colorClasses: 'bg-red-100/60 dark:bg-red-900/30',
